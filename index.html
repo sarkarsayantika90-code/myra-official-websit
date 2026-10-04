@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#040004">
+<meta name="description" content="MYRA AI — Personal AI Assistant">
+<title>MYRA AI — Official</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-glow glow1"></div><div class="bg-glow glow2"></div>
+
+<header class="nav">
+  <a class="brand" href="#"><span class="logo">M</span><b>MYRA</b></a>
+  <a class="nav-download" id="topDownload" href="#" target="_blank" rel="noopener">Download APK</a>
+</header>
+
+<main>
+<section class="hero">
+  <div class="badge">⚡ OFFICIAL MYRA WEBSITE</div>
+  <div class="hero-logo">M</div>
+  <h1>Meet <span>MYRA</span></h1>
+  <p>Your personal AI assistant. Fast, smart and designed to be there when you need it.</p>
+  <div class="actions">
+    <a class="download" id="heroDownload" href="#" target="_blank" rel="noopener">↓ <span><b>Download MYRA</b><small>Android APK</small></span></a>
+    <button class="share" id="shareBtn">↗ <span>Share Website</span></button>
+  </div>
+  <div class="hint">Android · Latest version · Made by Anik</div>
+</section>
+
+<section class="social">
+  <div class="section-head">
+    <span class="mini-badge">CONNECT</span>
+    <h2>Find me <span>online</span></h2>
+    <p>Tap an icon to open the official social profile or channel.</p>
+  </div>
+  <div class="social-grid">
+    <a class="social-card" href="https://www.facebook.com/share/1MD3dEwjeV/" target="_blank" rel="noopener"><div class="social-icon">f</div><div><b>Facebook</b><small>My Facebook profile</small></div><span>↗</span></a>
+    <a class="social-card" href="https://www.instagram.com/mahadev___lover___9725?stkn=MWRkNGw4dHZrbmJvMQ==" target="_blank" rel="noopener"><div class="social-icon">◎</div><div><b>Instagram</b><small>@mahadev___lover___9725</small></div><span>↗</span></a>
+    <a class="social-card" href="https://t.me/+OekQUOt4p944M2E1" target="_blank" rel="noopener"><div class="social-icon">✈</div><div><b>Telegram</b><small>Join my Telegram channel</small></div><span>↗</span></a>
+    <a class="social-card" href="mailto:anikmondal8680@gmail.com?subject=MYRA%20App%20Report"><div class="social-icon">✉</div><div><b>Gmail</b><small>Report MYRA · anikmondal8680@gmail.com</small></div><span>↗</span></a>
+  </div>
+</section>
+
+<section class="app-card">
+  <span class="mini-badge">MYRA APP</span>
+  <h2>Download the <span>latest MYRA</span></h2>
+  <p>Get the Android APK from the official MYRA release.</p>
+  <div class="meta"><span>Android</span><span id="version">Latest</span><span>Official</span></div>
+  <a class="download" id="appDownload" href="#" target="_blank" rel="noopener">↓ <span><b>Download APK</b><small>MYRA for Android</small></span></a>
+</section>
+
+<section class="info">
+  <div><span class="mini-badge">ABOUT</span><h2>MYRA AI</h2><p>MYRA is a personal AI assistant created to provide a fast, simple and modern assistant experience.</p></div>
+  <div><span class="mini-badge">REPORT</span><h2>Need help?</h2><p>For app problems or reports, contact the MYRA team by Gmail.</p><a class="report" href="mailto:anikmondal8680@gmail.com?subject=MYRA%20App%20Report">⚠ Report App</a></div>
+</section>
+</main>
+
+<footer><div class="footer-brand"><span class="logo small">M</span> MYRA AI</div><p>© 2026 MYRA AI · Made by Anik</p></footer>
+<div class="toast" id="toast">Website link copied!</div>
+
+<script src="config.js"></script>
+<script>
+const apk = (window.MYRA_CONFIG && window.MYRA_CONFIG.apkUrl) || "#";
+["topDownload","heroDownload","appDownload"].forEach(id => document.getElementById(id).href = apk);
+if(window.MYRA_CONFIG?.version) document.getElementById("version").textContent = window.MYRA_CONFIG.version;
+
+async function shareSite(){
+  const url=window.location.href, data={title:"MYRA AI",text:"Download MYRA — my personal AI assistant.",url};
+  try{
+    if(navigator.share) await navigator.share(data);
+    else if(navigator.clipboard){ await navigator.clipboard.writeText(url); toast("MYRA website link copied!"); }
+    else prompt("Copy MYRA website link:",url);
+  }catch(e){}
+}
+function toast(t){const x=document.getElementById("toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),2200)}
+document.getElementById("shareBtn").onclick=shareSite;
+</script>
+</body>
+</html>
